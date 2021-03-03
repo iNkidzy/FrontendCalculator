@@ -6,12 +6,12 @@ services:
     restart: always
     image: nadiamiteva/frontend-calc
   hub:
-   hostname: hub-host
+  hostname: hub-host
    restart: always
    image: selenium/hub
    depends_on:
       - app
-    ports:
+   ports:
       - "4444:4444"
     firefox-node:
       restart: always
@@ -26,4 +26,4 @@ services:
       depends_on:
       - hub
       environment:
-        HUB_HOST hub-host
+        HUB_HOST: hub-host
