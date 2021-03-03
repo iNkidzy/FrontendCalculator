@@ -1,5 +1,8 @@
 pipeline{
      agent any
+     triggers{
+          pollSCM('H/5 * * * *')
+     } //poll every 5 min
      stages {
          stage("Deliver to Docker Hub") {
              steps {
@@ -11,6 +14,7 @@ pipeline{
                   sh "docker push nadiamiteva/frontend-calc"
              }
          }
+         stage("Git  ")
          stage("Selenium grid setup") {
              steps{
                  sh "docker-compose -f selenium.yml up -d"
