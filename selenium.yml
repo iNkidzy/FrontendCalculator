@@ -10,20 +10,20 @@ services:
    restart: always
    image: selenium/hub
    depends_on:
-      -app
+      - app
     ports:
-      -"4444:4444"
+      - "4444:4444"
     firefox-node:
       restart: always
       image: selenium/node-firefox
       depends_on:
-      -hub
+      - hub
       environment:
         HUB_HOST: hub-host
     chrome-node:
       restart: always
       image: selenium/node-chrome
       depends_on:
-      -hub
+      - hub
       environment:
-        HUB_HOST: hub-host
+        HUB_HOST hub-host
